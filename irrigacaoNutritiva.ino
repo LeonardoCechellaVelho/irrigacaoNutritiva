@@ -140,7 +140,7 @@ void telaLCD() {
   lcd.setCursor(9, 0);
   lcd.print(umidade);
   lcd.setCursor(13, 0);
-  lcd.print("mL");
+  lcd.print("mm");
   lcd.setCursor(0, 1);
   lcd.print("pH: ");
   lcd.setCursor(4, 1);
