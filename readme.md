@@ -13,7 +13,7 @@ Projeto utilizado para simular a aplicação de uma irrigação nutritiva autom�
 
 ## Placa PICSIMLab
 
-![PlacaPIC](https://github.com/LeonardoCechellaVelho/irrigacaoNutritiva/blob/master/assets/img/previewPlaca.png?raw=true)
+![PlacaPIC](https://github.com/LeonardoCechellaVelho/irrigacaoNutritiva/blob/master/assets/img/previewPlaca.PNG?raw=true)
 
 ## Metodologia
 
