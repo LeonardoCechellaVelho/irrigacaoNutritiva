@@ -110,44 +110,29 @@ void inicializaInputsOutputs() {
 }
 
 void criaRegras() {
-  /* Regra 1 */
+  /* Regras de funcionamento */
   FuzzyRule *fuzzyRule1 = new FuzzyRule(1, antecedentWithAND(phLow, umLow), irrigacaoMaxima());
   fuzzy->addFuzzyRule(fuzzyRule1);
-
-  /* Regra 2 */
   FuzzyRule *fuzzyRule2 = new FuzzyRule(2, antecedentWithAND(phLow, umMed), irrigacaoMedia());
   fuzzy->addFuzzyRule(fuzzyRule2);
-
-  /* Regra 3 */
   FuzzyRule *fuzzyRule3 = new FuzzyRule(3, antecedentWithAND(phLow, umHigh), irrigacaoMinima());
   fuzzy->addFuzzyRule(fuzzyRule3);
-
-  /* Regra 4 */
   FuzzyRule *fuzzyRule4 = new FuzzyRule(4, antecedentWithAND(phMed, umLow), irrigacaoMedia());
   fuzzy->addFuzzyRule(fuzzyRule4);
-
-  /* Regra 5 */
   FuzzyRule *fuzzyRule5 = new FuzzyRule(5, antecedentWithAND(phMed, umMed), irrigacaoMedia());
   fuzzy->addFuzzyRule(fuzzyRule5);
-
-  /* Regra 6 */
   FuzzyRule *fuzzyRule6 = new FuzzyRule(6, antecedentWithAND(phMed, umHigh), irrigacaoMinima());
   fuzzy->addFuzzyRule(fuzzyRule6);
-
-  /* Regra 7 */
   FuzzyRule *fuzzyRule7 = new FuzzyRule(7, antecedentWithAND(phHigh, umLow), irrigacaoMinima());
   fuzzy->addFuzzyRule(fuzzyRule7);
-
-  /* Regra 8 */
   FuzzyRule *fuzzyRule8 = new FuzzyRule(8, antecedentWithAND(phHigh, umMed), irrigacaoMinima());
   fuzzy->addFuzzyRule(fuzzyRule8);
-
-  /* Regra 9 */
   FuzzyRule *fuzzyRule9 = new FuzzyRule(9, antecedentWithAND(phHigh, umHigh), irrigacaoMinima());
   fuzzy->addFuzzyRule(fuzzyRule9);
 }
 
 void telaLCD() {
+  /* Lógica para o LCD */
   lcd.clear();
   float phf = ph;
   lcd.setCursor(0, 0);
@@ -169,11 +154,13 @@ void telaLCD() {
 }
 
 void leSensor() {
+  /* Leitura de valores e map dos mesmos */
   ph = map(analogRead(A1), 0, 1023, -20 , 164); 
   umidade = map(analogRead(A2), 0, 1023, -120, 1131); 
 }
 
 void fuzzySetup() {
+  /* Setup dos inputs Fuzzy */
   fuzzy->setInput(ID_PH, ph);
   fuzzy->setInput(ID_UMIDADE, umidade);
 
@@ -183,6 +170,7 @@ void fuzzySetup() {
 }
 
 void iteracaoMotor() {
+  /* Alterar velocidade do motor */
   if (irrigAnt != irrigacaoOutput) {
     s.write(irrigacaoOutput);
     irrigAnt = irrigacaoOutput;
